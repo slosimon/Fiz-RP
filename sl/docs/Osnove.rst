@@ -28,7 +28,9 @@ Primer slabe prakse:
     :linenos:
     
     #include <stdio.h>
-    #include<math.h> // Program se bo uspešno prevedel, je pa lepo, ce pred potjo do zaglavne datoteke napisemo presledek
+    #include<math.h> 
+    /* Program se bo uspešno prevedel, je pa lepo, 
+       ce pred potjo do zaglavne datoteke napisemo presledek.*/
     
     int main(void)
     {int    x= 1; 
