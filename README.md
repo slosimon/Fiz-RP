@@ -1,2 +1,4 @@
 # Fiz-RP
-Rešitve nalog
+
+
+Smernice za kodiranje v programskem jeziku C.
