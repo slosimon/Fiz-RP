@@ -1,0 +1,240 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Osnove &#8212; Smernice za kodiranje  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Abecedni seznam" href="genindex.html" />
+    <link rel="search" title="Išči" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="osnove">
+<h1>Osnove<a class="headerlink" href="#osnove" title="Povezava na naslov">¶</a></h1>
+<p>V kodi najprej vključimo vse knjižnice, ki jih bomo uporabili. Če kasneje ugotovimo, da smo pozabili vključiti kakšno zaglavno datoteko („header file“), jo dodamo na konec vseh razdelka, kjer vključujemo datoteke. Prav tako poskrbimo, da nimamo vključenih odvečnih zaglavnih datotek, saj s tem podaljšujemo čas prevajanja.</p>
+<p>Primer:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // Standard input-output header</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt; // Ta zaglavna datoteka v tem programu ni potrebna</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Prav tako je zelo pomembno, da naša funckija main na koncu vrne rezultat, saj v nasprotnem primeru dosežemo nedefinirano obnašanje. S tem ko vrnemo na koncu 0, sporočimo, da se je program uspešno zaključil.</p>
+<p>Pri pisanju programske kode moramo tudi paziti, da je koda berljiva. Berljivost dosežemo s pravilno uporabo zamikov, presledkov in novih vrstic.</p>
+<p>Primer slabe prakse:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;math.h&gt; // Program se bo uspešno prevedel, je pa lepo, ce pred potjo do zaglavne datoteke napisemo presledek</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span><span class="kt">int</span>    <span class="n">x</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                    <span class="cm">/* Celotna vrstica z izjemo { bi morala biti v novi vrstici,</span>
+<span class="cm">                       zamaknjena za 4 presledke ali en tabulator. Prav tako se</span>
+<span class="cm">                       je treba drzati pravila enega presledka (int x = 1;)*/</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Dve besedi</span><span class="se">\n</span><span class="s">Se tri besede</span><span class="se">\n</span><span class="s">In se tri&quot;</span><span class="p">);</span>
+    <span class="c1">// Vsaka vrstica izpisa naj bo izpisana posebej.</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
+    <span class="c1">// Po vsakem delu kode naj bo presledek, zaradi vecje berljivosti</span>
+
+<span class="k">return</span> <span class="mi">0</span><span class="p">;}</span>
+<span class="cm">/* return 0; naj bo vedno v svoji vrstici tik pred koncem programa</span>
+<span class="cm">   na istem zamiku, kot je cel program. */</span>
+</pre></div>
+</td></tr></table></div>
+<p>Popravljen primer:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="cm">/* Po vsakem misljensko locenem bloku naj bo prazna vrstica.</span>
+<span class="cm">       Ce je preskok se vecji, se lahko uporabi vec praznih vrstic*/</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Dve besedi</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Se tri besede</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;In se tri</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Iz varnostnih razlogov tudi ne puščamo spremenljivk predolgo nedefiniranih. Zato jih deklariramo kar se le da pozno, saj se lahko pripeti, da se zmotimo, in jo poizkusimo uporabiti že prej, s tem pa ponovno ustvarimo nepredvideno obnašanje programa. Poizkušamo se tudi izogibati deklaraciji več spremenljivk v eni vrstici</p>
+<p>Primer:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+    <span class="c1">// Bolje je deklarirati vsako posebej. Prav tako naj bodo imena spremenljivk pomenljiva</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Vnesi x: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nova vrednost x je %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Vnesi y: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nova vrednost y je %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Razlika med x in y je %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+    <span class="cm">/* z naj bi bil razlika, ki smo jo pozabili definirati.</span>
+<span class="cm">       Ce z ne bi definirali na vrhu, ampak tik pred izpisom,</span>
+<span class="cm">       bi to opazili.*/</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Smernice za kodiranje</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigacija</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Potrdi" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Simon Weiss.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/Osnove.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
