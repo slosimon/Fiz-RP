@@ -10,12 +10,12 @@ Smernice za kodiranje - Fizika UN - Računalniški praktikum!
    :maxdepth: 2
    
    Osnove
+   Pogojni
 
 
 
 Indices and tables
 ==================
 
-* :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
