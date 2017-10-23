@@ -65,3 +65,31 @@ Primer slabe prakse:
         printf("Kaj bo prej preverjeno?\n");
     }
     
+Kljub temu da v programskem jeziku C deluje tudi t.i. inline pogojni stavek, se mu navadno izogibamo. Uporabljanje zavitih oklepajev nam omogoča popravljanje programske kode brez težav pri dodajanju dejanj znotraj pogoja. 
+
+Zato namesto
+
+.. code-block:: c
+    :linenos:
+    
+    if (a > b)
+        printf("A vecje od B.\n");
+
+ali
+
+.. code-block:: c
+    :linenos:
+    
+    if (a > b) printf("A vecje od B.\n");
+    
+pišemo raje
+
+.. code-block:: c
+    :linenos:
+    
+    if (a > b)
+    {
+        printf("A vecje od B.\n");
+    }
+
+

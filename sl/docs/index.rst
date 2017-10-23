@@ -11,6 +11,7 @@ Smernice za kodiranje - Fizika UN - Računalniški praktikum!
    
    Osnove
    Pogojni
+   While
 
 
 
