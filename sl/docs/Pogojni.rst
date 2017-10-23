@@ -65,6 +65,24 @@ Primer slabe prakse:
         printf("Kaj bo prej preverjeno?\n");
     }
     
+    
+Ker se lahko pripeti, da imamo mnogo pogojev znotraj enega pogojnega stavka in le ti zasedajo več kot 100 znakov, se lahko poslužimo metode "razbijanja vrstice". Pri tem velja pravilo, da morajo biti vrstice razbite logično in tudi jasno označeno.
+
+Primer:
+
+.. code-block:: c
+    :linenos:
+    
+    if ( ( (stevilo1 > stevilo2) || (stevilo2 > stevilo3) ) &&
+         ( (stevilo3 > stevilo4) || (stevilo4 > stevilo5) ) )
+    {
+        // Naredi nekaj
+    }
+    
+V tem primeru smo jasno označili, da morata biti izpolnjena ali prvi ali drug pogoj IN tretji ali četrti pogoj.
+
+Ko tako razbijemo vrstice nato tudi zaviti oklepaj postavimo na mesto, kejr bi bil, če vrstic ne bi razbil. To nam pomaga pri logičnem razmišljanju in vmeščanju pogojnega stavka v kontekts.
+
 Kljub temu da v programskem jeziku C deluje tudi t.i. inline pogojni stavek, se mu navadno izogibamo. Uporabljanje zavitih oklepajev nam omogoča popravljanje programske kode brez težav pri dodajanju dejanj znotraj pogoja. 
 
 Zato namesto
