@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Smernice za kodiranje - Fizika UN - Računalniški praktikum!
-=================================================
+===========================================================
 
 .. toctree::
    :maxdepth: 2
