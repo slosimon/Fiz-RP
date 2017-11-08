@@ -50,4 +50,26 @@ veliko primernejši od zapisa
     }
     
 Nasvet v primeru težav z zanko for: Po standardu C89 ni bilo dovoljeno pisati "for (int i ..." in je bilo potrebno števec "i" deklarirati pred zanko. Če naletite na takšno težavo, preverite nastavitve prevajalnika in/ali povprašate demonstratorja, kaj lahko storite. Na računalniškem praktikumu se držimo standarda C99.
-        
+
+Prav tako kot tudi pri pogojnem stavku, je zelo priporočljiva uporaba zavitih oklepajev (zadnji oklepaj je praviloma po zadnji vrstici zanke, prvi pa ali v isti vrstici kot `for` ali v svoji vrstici tik za `for`
+
+Torej ali:
+
+.. code-block:: c
+    :linenos:
+    
+    for (int i = 0; i < 10; i++)
+    {
+    
+    }
+    
+ali
+
+.. code-block:: c
+    :linenos:
+    
+    for (int i = 0; i < 10; i++) {
+        // Koda znotraj zanke
+    }
+
+Prav tako je skoraj obvezna uporaba zamikov znotraj zanke, saj s tem jasno nakažemo, kater del kode se izvaja znotraj nje. 
