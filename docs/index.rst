@@ -15,8 +15,9 @@ Smernice za kodiranje - Fizika UN - Računalniški praktikum!
 
 
 
-Indices and tables
-==================
+Opombe avtorja
+==============
 
-* :ref:`modindex`
-* :ref:`search`
+Ta dokument služi kot pripomoček k lepšemu stilu programiranja v programskem jeziku C. Vse navedeno je LE PREDLOG k vašemu stilu kodiranja. Način, ki se ga držim pri sestavljanju pa temelji na sodobnih smernicah programiranja. S programsko kodo, ki bo sledila smernicam boste omogočili lažje branje in pregledovanje kode ostalim, ki jo bodo pregledovali (popravljali, razhroščevali itn.). 
+
+Obvezno pa je, da se znotraj enega programa držite enakega stila pisanja kode.
